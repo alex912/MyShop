@@ -63,7 +63,7 @@ namespace MyShop.Models
             return false;
         }
 
-        public static void CreateAccount(string username, string password)
+        public static Account CreateAccount(string username, string password)
         {
             var account = new Account();
             account.UserName = username;
@@ -76,9 +76,10 @@ namespace MyShop.Models
             account.WowInfo = new WowInfo() { BattleTag = "", DefaultCharacter = "", DefaultFraction = "", DefaultServer = ""};
             MyShopConfig.Dao.AccountsDAO.InsertAccount(account);
             UpdateCache();
+            return account;
         }
 
-        public static void LoginAsGuest()
+        public static Account LoginAsGuest()
         {
             var account = new Account();
             account.UserName = "!guest-" + CreateSalt(10);
@@ -91,13 +92,14 @@ namespace MyShop.Models
             account.WowInfo = new WowInfo() { BattleTag = "", DefaultCharacter = "", DefaultFraction = "", DefaultServer = "" };
             MyShopConfig.Dao.AccountsDAO.InsertAccount(account);
             UpdateCache();
-            FormsAuthentication.RedirectFromLoginPage(account.UserName, true);
+            FormsAuthentication.SetAuthCookie(account.UserName, true);
+            return account;
         }
 
         public static bool IsLoggedInAsUser()
         {
             var user = HttpContext.Current.User.Identity;
-            if (!user.IsAuthenticated || (user.IsAuthenticated && user.Name.StartsWith("!guest-")))
+            if (!user.IsAuthenticated || user.Name.StartsWith("!guest-"))
             {
                 return false;
             }

@@ -1,81 +1,102 @@
-﻿using MyShop.Models.Entities;
+﻿using MyShop.Controllers;
+using MyShop.Models.DAL;
+using MyShop.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Caching;
+using System.Web.Mvc;
 
 namespace MyShop.Models
 {
-    public class CartManager
+    public static class CartManager
     {
-        public static List<CartItem> Cart
+
+        public static bool AddItemToCart(int itemid)
         {
-            get
+            var item = ItemManager.GetItemById(itemid);
+            if (item != null)
             {
-                var cache = HttpContext.Current.Cache.Get("CartCache") as List<CartItem>;
-                if (cache != null)
-                {
-                    return cache;
-                }
-
-                UpdateCache();
-
-                cache = HttpContext.Current.Cache.Get("CartCache") as List<CartItem>;
-                return cache;
+                CartManager.AddItemToCart(item);
+                return true;
             }
+            return false;
         }
 
-
-        public static void UpdateCache()
+        public static void AddItemToCart(Item item)
         {
-            if (HttpContext.Current.Cache.Get("CartCache") != null)
-            {
-                HttpContext.Current.Cache.Remove("CartCache");
-            }
+            var account = default(Account);
 
-            var cache = MyShop.MyShopConfig.Dao.CartDAO.GetAllCartItems().ToList();
-            foreach(var c in cache)
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                c.Account = AccountManager.Accounts.FirstOrDefault(a => a.UserId == c.Account.UserId);
-                c.Item = ItemManager.GetItemById(c.Item.Id);
+                account = AccountManager.LoginAsGuest();
             }
-            HttpContext.Current.Cache.Add("CartCache", cache, null, Cache.NoAbsoluteExpiration, new TimeSpan(24, 0, 0), CacheItemPriority.Default, null);
-        }
-
-        public void AddItemToCart(Item item)
-        {
-            if (!AccountManager.IsLoggedInAsUser())
+            else
             {
-                AccountManager.LoginAsGuest();
+                account = HttpContext.Current.Profile["Account"] as Account;
             }
 
             var cartItem = new CartItem();
             cartItem.Item = item;
-            cartItem.Account = HttpContext.Current.Profile["Account"] as Account;
+            cartItem.Account = account;
             cartItem.Date = DateTime.Now;
+            cartItem.Region = item.Region;
 
             MyShop.MyShopConfig.Dao.CartDAO.InsertCartItem(cartItem);
-            UpdateCache();
         }
 
-        public bool DeleteItemFromCart(int cartItemId)
+        public static bool RemoveItemFromCart(int cartItemId)
         {
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
                 return false;
 
-            var cartItem = Cart.FirstOrDefault(c => c.Id == cartItemId);
+            var account = HttpContext.Current.Profile["Account"] as Account;
+            var cart = MyShopConfig.Dao.CartDAO.GetCartItemsByUserId(account.UserId, MyShopController.Region).ToList();
+
+            var cartItem = cart.FirstOrDefault(c => c.Id == cartItemId);
             if (cartItem == null)
                 return false;
 
-            var account = HttpContext.Current.Profile["Account"] as Account;
+            
             if (cartItem.Account.UserId != account.UserId)
                 return false;
 
             MyShopConfig.Dao.CartDAO.DeleteCartItemById(cartItemId);
-            UpdateCache();
             return true;
         }
+
+
+        public static IEnumerable<CartItem> GetCart()
+        {
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                return null;
+
+            var account = HttpContext.Current.Profile["Account"] as Account;
+            var cart = MyShopConfig.Dao.CartDAO.GetCartItemsByUserId(account.UserId, MyShopController.Region).ToList();
+
+            if (cart.Count == 0)
+                return null;
+
+            foreach(var c in cart)
+            {
+                c.Account = account;
+                c.Item = ItemManager.GetItemById(c.Item.Id);
+                c.Region = RegionManager.FindRegionByName(c.Region.Name);
+            }
+
+            return cart;
+        }
+
+        public static string GetTotalPrice(this HtmlHelper helper, IEnumerable<CartItem> cartItems)
+        {
+            var total = 0.0;
+            foreach (var i in cartItems)
+            {
+                total += i.Item.Price;
+            }
+            return MyShopController.Region.Price(total);
+        } 
 
     }
 }

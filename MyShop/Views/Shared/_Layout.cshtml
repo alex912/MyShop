@@ -17,9 +17,11 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
     <link href='fonts.googleapis.com/css?family=Bitter: &amp;subset=latin' rel='stylesheet' type='text/css' />
 
-    <script type="text/javascript" src="http://ultimo.infortis-themes.com/demo/media/js/f4c7af32d3d6bb8b8de4384b3ad571ca.js"></script>
- 
-    <!--<script type="text/javascript" src="~/Scripts/jquery-2.1.1.js"></script>
+    <script src="~/Scripts/jquery-1.11.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.11.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    
     <!--[if IE]>
     <link rel="stylesheet" type="text/css" href="http://ultimo.infortis-themes.com/demo/media/css/deec10fc8f3a1907ce7d885da3b68b7a.css" media="all" />
     <![endif]-->
@@ -172,13 +174,7 @@
                                                             <label for="search">Search:</label>
                                                             <input id="search" type="text" name="q" value="" class="input-text" maxlength="128" />
                                                             <button type="submit" title="Search" class="button"><span><span>Search</span></span></button>
-                                                            <div id="search_autocomplete" class="search-autocomplete"></div>
-                                                            <script type="text/javascript">
-                                                                //<![CDATA[
-                                                                var searchForm = new Varien.searchForm('search_mini_form', 'search', 'Search entire store here...');
-                                                                searchForm.initAutocomplete('http://ultimo.infortis-themes.com/demo/second2/catalogsearch/ajax/suggest/', 'search_autocomplete');
-                                                                //]]>
-                                                            </script>
+                                                            
                                                         </div>
                                                     </form>
                                                 </div>
@@ -192,6 +188,7 @@
                                                             <span>
 
                                                                 <span class="icon ic ic-cart"></span>
+                                                                <span id="cart-number" class="count"></span>
                                                                 <span class="label">Корзина</span>
                                                                 <span class="caret">&nbsp;</span>
 
@@ -199,11 +196,7 @@
                                                         </a> <!-- end: heading -->
 
                                                         <div id="header-cart" class="mini-cart-content dropdown-content left-hand block block block-cart skip-content skip-content--style">
-                                                            <div class="block-content-inner">
-
-                                                                <div class="empty">You have no items in your shopping cart.</div>
-
-                                                            </div> <!-- end: inner block -->
+                                                            @Html.Action("GetCart", "Cart")
                                                         </div> <!-- end: dropdown-content -->
 
                                                     </div> <!-- end: mini-cart -->
@@ -244,14 +237,14 @@
 		var SmartHeader = {
 
 			mobileHeaderThreshold : 770
-			, rootContainer : jQuery('.header-container')
+			, rootContainer : $('.header-container')
 
 			, init : function()
 			{
-				enquire.register('(max-width: ' + (SmartHeader.mobileHeaderThreshold - 1) + 'px)', {
+	/*			enquire.register('(max-width: ' + (SmartHeader.mobileHeaderThreshold - 1) + 'px)', {
 					match: SmartHeader.moveElementsToMobilePosition,
 					unmatch: SmartHeader.moveElementsToRegularPosition
-				});
+				});*/
 			}
 
 			, activateMobileHeader : function()
@@ -268,16 +261,16 @@
 			{
 				SmartHeader.activateMobileHeader();
 
-				jQuery('#mini-cart-wrapper-mobile').prepend(jQuery('#mini-cart'));
-				jQuery('.skip-active').removeClass('skip-active');
+				$('#mini-cart-wrapper-mobile').prepend($('#mini-cart'));
+				$('.skip-active').removeClass('skip-active');
 
 				//Disable dropdowns
-				jQuery('#mini-cart').removeClass('dropdown');
-				jQuery('#mini-compare').removeClass('dropdown');
+				$('#mini-cart').removeClass('dropdown');
+				$('#mini-compare').removeClass('dropdown');
 
 				//Clean up after dropdowns: reset the "display" property
-				jQuery('#header-cart').css('display', '');
-				jQuery('#header-compare').css('display', '');
+				$('#header-cart').css('display', '');
+				$('#header-compare').css('display', '');
 
 			}
 
@@ -285,19 +278,19 @@
 			{
 				SmartHeader.activateRegularHeader();
 
-				jQuery('#mini-cart-wrapper-regular').prepend(jQuery('#mini-cart'));
-				jQuery('.skip-active').removeClass('skip-active');
+				$('#mini-cart-wrapper-regular').prepend($('#mini-cart'));
+				$('.skip-active').removeClass('skip-active');
 
 				//Enable dropdowns
-				jQuery('#mini-cart').addClass('dropdown');
-				jQuery('#mini-compare').addClass('dropdown');
+				$('#mini-cart').addClass('dropdown');
+				$('#mini-compare').addClass('dropdown');
 			}
 
 		}; //end: SmartHeader
 
 		SmartHeader.init();
 
-		jQuery(function($) {
+		$(function($) {
 
 			//Skip Links
 			var skipContents = $('.skip-content');
@@ -334,7 +327,7 @@
 
 
 
-		jQuery(function($) {
+		$(function($) {
 
 			var StickyHeader = {
 
@@ -353,13 +346,13 @@
 					StickyHeader.applySticky();
 					StickyHeader.hookToScroll();
 
-					if (StickyHeader.stickyThreshold > 0)
+/*					if (StickyHeader.stickyThreshold > 0)
 					{
 						enquire.register('(max-width: ' + (StickyHeader.stickyThreshold - 1) + 'px)', {
 							match: StickyHeader.suspendSticky,
 							unmatch: StickyHeader.unsuspendSticky
 						});
-					}
+					}*/
 				}
 
 				, applySticky : function()
@@ -611,12 +604,7 @@
                                                         </div>
                                                     </form>
                                                 </div>
-                                                <script type="text/javascript">
-                                                    //<![CDATA[
-                                                    var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
-                                                    new Varien.searchForm('newsletter-validate-detail', 'newsletter', 'Enter your email address');
-                                                    //]]>
-                                                </script>
+
                                             </div>
 
                                         </div>
@@ -799,7 +787,7 @@
 
 
 
-                jQuery(function ($) {
+                $(function ($) {
 
                     $('.collapsible').each(function (index) {
                         $(this).prepend('<span class="opener"></span>');
@@ -1046,11 +1034,11 @@
 
 
 
-                jQuery(window).load(function () {
+                $(window).load(function () {
 
-                    setGridItemsEqualHeight(jQuery);
+                    setGridItemsEqualHeight($);
 
-                }); //end: jQuery(window).load(){...}
+                }); //end: $(window).load(){...}
 
 
 

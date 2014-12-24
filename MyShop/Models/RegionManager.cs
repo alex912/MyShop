@@ -34,7 +34,7 @@ namespace MyShop.Models
 
         public static Region GetDefaultRegion()
         {
-            return FindRegionByName("eu");
+            return FindRegionByName("ru");
         }
 
         public static void AddCulture(string culture)

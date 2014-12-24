@@ -11,8 +11,14 @@ namespace MyShop.Models
     {
         public static IEnumerable<Item> GetAllItems()
         {
-
-            return MyShopConfig.Dao.ItemsDAO.GetAllItems().ToList();
+            var list = MyShopConfig.Dao.ItemsDAO.GetAllItems().ToList();
+            
+            foreach(var item in list)
+            {
+                item.Catalog = MenuManager.GetAllMenus().FirstOrDefault(m => m.MenuId == item.Catalog.MenuId);
+                item.Region = RegionManager.FindRegionByName(item.Region.Name);
+            }
+            return list;
         }
 
         public static Item GetItemById(int id)

@@ -29,6 +29,7 @@ namespace MyShop.Models.DAL.Mssql
                         Item = new Item() {Id = (int)reader["GoodId"]},
                         Date = (DateTime)reader["Date"],
                         Count = (int)reader["Count"],
+                        Region = new Region() { Name = (string)reader["Region"] }
                     };
                 }
             }
@@ -38,14 +39,15 @@ namespace MyShop.Models.DAL.Mssql
         {
             using (var connection = new SqlConnection(MyShopConfig.DataConnection))
             {
-                SqlCommand comm = new SqlCommand("INSERT INTO [Cart]([UserId], [GoodId], [Date], [Count]) VALUES " +
-                                                 "(@UserId, @GoodId, @Date, @Count)", connection);
+                SqlCommand comm = new SqlCommand("INSERT INTO [Cart]([UserId], [GoodId], [Date], [Count], [Region]) VALUES " +
+                                                 "(@UserId, @GoodId, @Date, @Count, @Region)", connection);
 
                 comm.Parameters.Add(new SqlParameter("UserId", item.Account.UserId));
                 comm.Parameters.Add(new SqlParameter("GoodId", item.Item.Id));
                 comm.Parameters.Add(new SqlParameter("Date", item.Date));
                 comm.Parameters.Add(new SqlParameter("Count", item.Count));
-         
+                comm.Parameters.Add(new SqlParameter("Region", item.Region.Name));
+
                 connection.Open();
                 comm.ExecuteNonQuery();
                 connection.Close();
@@ -66,5 +68,33 @@ namespace MyShop.Models.DAL.Mssql
             }
         }
 
+
+
+        public IEnumerable<CartItem> GetCartItemsByUserId(int userid, Region region)
+        {
+            using (var connection = new SqlConnection(MyShopConfig.DataConnection))
+            {
+                SqlCommand comm = new SqlCommand("SELECT * FROM [Cart] WHERE [UserId]=@UserId AND [Region]=@Region", connection);
+                comm.Parameters.Add(new SqlParameter("UserId", userid));
+                comm.Parameters.Add(new SqlParameter("Region", region.Name));
+
+                connection.Open();
+                var reader = comm.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    yield return new CartItem()
+                    {
+                        Id = (int)reader["Id"],
+                        Account = new Account() { UserId = (int)reader["UserId"] },
+                        Item = new Item() { Id = (int)reader["GoodId"] },
+                        Date = (DateTime)reader["Date"],
+                        Count = (int)reader["Count"],
+                        Region = new Region() { Name = (string)reader["Region"] }
+                    };
+                }
+            }
+        }
     }
 }

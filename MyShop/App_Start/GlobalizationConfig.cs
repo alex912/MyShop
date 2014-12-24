@@ -14,8 +14,8 @@ namespace MyShop
         public static void SetDefaultRegions()
         {
 
-            RegionManager.AddRegion(new Region { Name = "ru", Language = "Русский", Culture = "ru-RU", ImageFile = "it.png" });
-            RegionManager.AddRegion(new Region { Name = "eu", Language = "English", Culture = "en-GB", ImageFile = "english.png" });
+            RegionManager.AddRegion(new Region { Name = "ru", Language = "Русский", Culture = "ru-RU", ImageFile = "it.png", Price = (p) =>  p.ToString() + " р."});
+            //RegionManager.AddRegion(new Region { Name = "eu", Language = "English", Culture = "en-GB", ImageFile = "english.png", Price = (p) =>  '€' + p.ToString()});
 
             RegionManager.AddCulture("ru-RU");
             RegionManager.AddCulture("en-GB");

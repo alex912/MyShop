@@ -9,24 +9,19 @@
             <div class="preface"></div>
             <div class="col-main">
 
-                <div id="messages_product_view"></div>
+                <div id="messages_product_view"><ul class="messages"></ul></div>
                 <div class="product-view">
 
                     <form action="http://ultimo.infortis-themes.com/demo/second2/checkout/cart/add/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi9waG9uZTEuaHRtbD9fX19TSUQ9VQ,,/product/21/" method="post" id="product_addtocart_form" enctype="multipart/form-data">
 
-
+                        <input type="hidden" name="ItemId" value="@Model.Id" />
                         <div class="product-img-column grid12-4">
 
                             <div class="img-box img-box-style1">
 
-
-
-
                                 <p class="product-image " style="max-width: 300px;">
                                     <img src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/image/363x/040ec09b1e35df139433887a97daa66f/p/h/phone02.jpg" />
                                 </p>
-
-
 
                             </div> <!-- end: img-box -->
 
@@ -82,11 +77,11 @@
                                                         <script type="text/javascript">$('options_6_2').advaiceContainer = 'options-6-container'; $('options_6_2').callbackFunction = 'validateOptionsCallback';</script>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="                                                                opConfig.reloadPrice()" name="options[6][]" id="options_6_3" value="13" price="1579.2" /><span class="label"><label for="options_6_3">Headphones <span class="price-notice">+<span class="price">RUB1,579.20</span></span></label></span>
+                                                        <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="opConfig.reloadPrice()" name="options[6][]" id="options_6_3" value="13"" /><span class="label"><label for="options_6_3">Headphones <span class="price-notice">+<span class="price">RUB1,579.20</span></span></label></span>
                                                         <script type="text/javascript">$('options_6_3').advaiceContainer = 'options-6-container'; $('options_6_3').callbackFunction = 'validateOptionsCallback';</script>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="                                                                opConfig.reloadPrice()" name="options[6][]" id="options_6_4" value="23" price="1263.36" /><span class="label"><label for="options_6_4">Super Anti-Glare Case <span class="price-notice">+<span class="price">RUB1,263.36</span></span></label></span>
+                                                        <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="opConfig.reloadPrice()" name="options[6][]" id="options_6_4" value="23" " /><span class="label"><label for="options_6_4">Super Anti-Glare Case <span class="price-notice">+<span class="price">RUB1,263.36</span></span></label></span>
                                                         <script type="text/javascript">$('options_6_4').advaiceContainer = 'options-6-container'; $('options_6_4').callbackFunction = 'validateOptionsCallback';</script>
                                                     </li>
                                                 </ul>                                    <span id="options-6-container"></span>
@@ -101,9 +96,9 @@
                                     <div class="add-to-cart left-side">
                                         <div class="qty-wrapper">
                                             <label for="qty">Quantity:</label>
-                                            <input type="text" name="qty" id="qty" maxlength="12" value="1" class="input-text qty" />
+                                            <input type="text" name="Count" id="qty" maxlength="12" value="1" class="input-text qty" />
                                         </div>
-                                        <button type="button" id="product-addtocart-button" class="button btn-cart" onclick="productAddToCart(@Model.Id)"><span><span>Add to Cart</span></span></button>
+                                        <button type="button" id="product-addtocart-button" class="button btn-cart" onclick="productAddToCart()"><span><span>Add to Cart</span></span></button>
                                     </div>
                                     <div class="paypal-wrapper"></div>
                                 </div>
@@ -153,24 +148,28 @@
 
 
                     </form>
-                    <script type="text/javascript">
-                        //<![CDATA[
-                        var productAddToCartForm = new VarienForm('product_addtocart_form');
-                        function productAddToCart(id) {
+                    <script>
+                        function productAddToCart() {
+                            var params = {}
+                            $("input").each(function () { if (this.value) params[this.name] = this.value });
                             $.ajax(
                                 {
-                                    type: "GET",
-                                    url: "/cart/additem/" + id,
+                                    type: "POST",
+                                    data: params,
+                                    url: "/cart/additem",
                                     success: function (data) {
-                                        var result_window = $("#messages_product_view");
+                                        var result_window = $("#messages_product_view ul");
                                         result_window.empty();
-                                        result_window.html(data);
-
+                                        if (data.Success) {
+                                            result_window.append('<li class="success-msg"><ul><li><span>' + data.Message + '</span></li>');
+                                            $("#header-cart").load("/cart/getcart");
+                                        } else {
+                                            result_window.append('<li class="error-msg"><ul><li><span>' + data.Message + '</span></li>');
+                                        }
                                     }
                                 })
-                             
+
                           }
-                        //]]>
                     </script>
 
 

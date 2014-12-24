@@ -122,24 +122,11 @@
                     <span>Menu</span>
                 </a>
             </div>
-
-
-
-
-
             @PrintMenu(MenuManager.RootMenu, false, false, "nav")
-
-
-
-
-            <script type="text/javascript">
-                //<![CDATA[
-
-
-
+            <script>
                 var MegaMenu = {
 
-                    mobileMenuThreshold: 960, bar: jQuery('#nav')
+                    mobileMenuThreshold: 960, bar: $('#nav')
                     , panels: null
                     , mobnavTriggerWrapper: null
                     , itemSelector: 'li'
@@ -158,12 +145,13 @@
 
                     , initDualMode: function () {
                         MegaMenu.init();
-                        MegaMenu.bar.accordion(MegaMenu.panelSelector, MegaMenu.openerSelector, MegaMenu.itemSelector);
+                       // MegaMenu.bar.accordion();
+                       // MegaMenu.bar.accordion(MegaMenu.panelSelector, MegaMenu.openerSelector, MegaMenu.itemSelector);
                         if (jQuery(window).width() >= MegaMenu.mobileMenuThreshold) {
                             MegaMenu.cleanUpAfterMobileMenu(); //Required for IE8
                         }
 
-                        enquire
+                       /* enquire
                             .register('screen and (max-width: ' + (MegaMenu.mobileMenuThreshold - 1) + 'px)', {
                                 match: MegaMenu.activateMobileMenu,
                                 unmatch: MegaMenu.cleanUpAfterMobileMenu
@@ -173,7 +161,7 @@
                                 setup: MegaMenu.cleanUpAfterMobileMenu,
                                 match: MegaMenu.activateRegularMenu,
                                 unmatch: MegaMenu.prepareMobileMenu
-                            });
+                            });*/
                     }
 
                     , initMobileMode: function () {
@@ -210,26 +198,26 @@
 
 
 
-                MegaMenu.initDualMode();
+                
 
                 //Toggle mobile menu
-                jQuery('a.mobnav-trigger').on('click', function (e) {
+                $('a.mobnav-trigger').on('click', function (e) {
                     e.preventDefault();
                     if (jQuery(this).hasClass('active')) {
                         MegaMenu.bar.removeClass('show');
-                        jQuery(this).removeClass('active');
+                        $(this).removeClass('active');
                     }
                     else {
                         MegaMenu.bar.addClass('show');
-                        jQuery(this).addClass('active');
+                        $(this).addClass('active');
                     }
                 });
 
+                MegaMenu.initDualMode();
 
 
 
-
-                jQuery(function ($) {
+                $(function ($) {
 
                     var menubar = MegaMenu.bar;
 
@@ -290,8 +278,8 @@
 
                 }); //end: on document ready
 
-                jQuery(window).on("load", function () {
-
+                $(window).on("load", function () {
+                    
                     var menubar = MegaMenu.bar;
 
                     if (MegaMenu.isTouchDevice) {
@@ -310,11 +298,11 @@
                     } //end: if isTouchDevice
 
                 }); //end: on load
+                
 
 
 
-
-                //]]>
+               
             </script>
 
         </div> <!-- end: inner-container -->

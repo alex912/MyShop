@@ -11,6 +11,7 @@ namespace MyShop.Models.Entities
         public Account Account{ get; set; }
         public Item Item { get; set; }
         public DateTime Date { get; set; }
+        public Region Region { get; set; }
         public int Count { get; set; }
     }
 }

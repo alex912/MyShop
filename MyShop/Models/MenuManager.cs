@@ -28,6 +28,23 @@ namespace MyShop.Models
             }
         }
 
+        public static List<Menu> AllMenus
+        {
+            get
+            {
+                if (allMenus == null)
+                {
+                    UpdateCache();
+                }
+
+                return allMenus;
+            }
+            private set
+            {
+                allMenus = value;
+            }
+        }
+
         public static void UpdateCache()
         {
             allMenus = new List<Menu>();
@@ -60,7 +77,7 @@ namespace MyShop.Models
 
         public static IEnumerable<Menu> GetAllMenus()
         {
-            return allMenus;
+            return AllMenus;
         }
 
         public static string GenerateUrl(this UrlHelper url, Item item)

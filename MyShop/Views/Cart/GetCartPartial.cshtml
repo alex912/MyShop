@@ -1,0 +1,42 @@
+﻿@using MyShop.Models.Entities
+@model IEnumerable<CartItem>
+<div class="block-subtitle">Recently added item(s)</div>
+
+<ol id="cart-sidebar" class="mini-products-list clearer">
+    @foreach (var c in Model)
+    {
+        <li class="item">
+            <a href="@Url.GenerateUrl(c.Item)" title="@c.Item.Name" class="product-image"><img src="/images/menu/@c.Item.ImageName" width="50" height="50" alt="@c.Item.Name" /></a>
+            <div class="product-details">
+                <a href="#" title="Remove This Item" onclick="RemoveItem(@c.Id)" class="btn-remove">Remove This Item</a>
+                <a href="/cart/edit/@c.Id" title="Edit item" class="btn-edit">Edit item</a>
+                <p class="product-name"><a href="@Url.GenerateUrl(c.Item)">@c.Item.Name</a></p>
+                <strong>@c.Count</strong>
+                <span class="price">@c.Region.Price(c.Item.Price)</span>
+            </div>
+        </li>
+    }
+</ol>
+
+<script>
+    function RemoveItem(cartItemId)
+    {
+        var really = confirm('Are you sure you would like to remove this item from the shopping cart?');
+        if (really)
+        {
+            $.post("/cart/removeitem", { "cartItemId": cartItemId });
+            $("#header-cart").load("/cart/getcart");
+
+        }
+    }
+</script>
+
+<div class="subtotal">
+    <span class="label">Cart Subtotal:</span> <span class="price">@Html.GetTotalPrice(Model)</span>
+</div>
+
+<div class="actions clearer">
+    <button type="button" title="View all items in your shopping cart" class="button btn-inline" onclick="setLocation('http://ultimo.infortis-themes.com/demo/second2/checkout/cart/')"><span><span>View All</span></span></button>
+    <button type="button" title="Proceed to Checkout" class="button btn-checkout btn-inline " onclick="setLocation('http://ultimo.infortis-themes.com/demo/second2/checkout/onepage/')"><span><span>Proceed to Checkout</span></span></button>
+</div>
+

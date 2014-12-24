@@ -20,5 +20,8 @@ namespace MyShop.Models.Entities
             return Name;
         }
 
+        public delegate string OutputPriceDelegate(double price);
+
+        public OutputPriceDelegate Price;
     }
 }

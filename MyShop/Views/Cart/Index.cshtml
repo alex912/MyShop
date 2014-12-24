@@ -1,0 +1,183 @@
+﻿@using MyShop.Models.Entities
+@model IEnumerable<CartItem>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="main-container col1-layout">
+    <div class="main-before-top-container"></div>
+
+    <div class="main container">
+        <div class="inner-container">
+            <div class="preface"></div>
+            <div class="col-main">
+                <div class="cart">
+                    <div class="page-title title-buttons">
+                        <h1>Shopping Cart</h1>
+                    </div>
+
+                    <form action="/cart/" method="post" class="the-cart-form">
+                        <fieldset>
+                            <div class="cart-table-wrapper">
+                                <table id="shopping-cart-table" class="data-table cart-table">
+                                    <col class="col-img" width="1" />
+                                    <col />
+                                    <col class="col-edit" width="1" />
+                                    <col class="col-unit-price" width="1" />
+
+                                    <col width="1" />
+                                    <col class="col-total" width="1" />
+                                    <col class="col-delete" width="1" />
+
+                                    <thead>
+                                        <tr>
+                                            <th class="col-img" rowspan="1">&nbsp;</th>
+                                            <th rowspan="1"><span class="nobr">Product Name</span></th>
+                                            <th class="col-edit" rowspan="1"></th>
+
+                                            <th class="col-unit-price a-center" colspan="1"><span class="nobr">Unit Price</span></th>
+                                            <th rowspan="1" class="a-center">Qty</th>
+                                            <th class="a-center" colspan="1">Subtotal</th>
+                                            <th class="col-delete a-center" rowspan="1">&nbsp;</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+
+                                        <tr>
+                                            <td colspan="50" class="a-right">
+                                                <button type="button" title="Continue Shopping" class="button btn-continue btn-inline" onclick="setLocation('/')"><span><span>Continue Shopping</span></span></button>
+                                                <button type="submit" name="update_cart_action" value="update_qty" title="Update Shopping Cart" class="button btn-update btn-inline"><span><span>Update Shopping Cart</span></span></button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                        @foreach (var c in Model)
+                                        {
+                                            <tr>
+                                                <td><a href="@Url.GenerateUrl(c.Item)" title="@c.Item.Name" class="product-image"><img src="/images/menu/@c.Item.ImageName" alt="@c.Item.Name" /></a></td>
+                                                <td>
+                                                    <h2 class="product-name">
+                                                        <a href="@Url.GenerateUrl(c.Item)">@c.Item.Name</a>
+                                                    </h2>
+                                                    <dl class="item-options">
+
+                                                        <dt>Color</dt>
+                                                        <dd>White                            </dd>
+                                                        <dt>Size</dt>
+                                                        <dd>S                            </dd>
+                                                    </dl>
+                                                </td>
+                                                <td class="col-edit a-center">
+                                                    <a href="@Url.GenerateUrl(c.Item)" title="Edit item parameters">Edit</a>
+                                                </td>
+
+
+                                                <td class="col-unit-price a-right">
+
+                                                    <span class="cell-label">
+                                                        Unit Price
+                                                    </span>
+
+                                                    <span class="cart-price">
+                                                        <span class="price">@c.Item.Price</span>
+                                                    </span>
+
+
+                                                </td>
+                                                <td class="a-center">
+
+                                                    <span class="cell-label">Qty</span>
+                                                    
+                                                    <input name="cart[16303][qty]" value="@c.Item.Count" size="4" title="Qty" class="input-text qty" maxlength="12" />
+                                                </td>
+                                                <td class="col-total a-right">
+
+                                                    <span class="cell-label">
+
+                                                        Subtotal
+                                                    </span>
+
+                                                    <span class="cart-price">
+
+                                                        <span class="price">@c.Item.Price</span>
+                                                    </span>
+                                                </td>
+                                                <td class="col-delete a-center">
+                                                    <input type="hidden" name="id" value="@c.Id" />
+                                                    <a href="#" title="Remove item" class="btn-remove btn-remove2" onclick="RemoveItem($(this))">Remove item</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+
+                                </table>
+                                <!-- end: cart-table-wrapper -->
+                        </fieldset>
+                    </form>
+                    <div class="cart-collaterals nested-container">
+                        <div class="cart-right-column grid12-4">
+                            <div class="totals grid-full alpha omega">
+
+                                <div class="totals-inner">
+                                    <table id="shopping-cart-totals-table">
+                                        <col />
+                                        <col width="1" />
+                                        <tfoot>
+                                            <tr>
+                                                <td style="" class="a-right" colspan="1">
+                                                    <strong>Grand Total</strong>
+
+                                                </td>
+                                                <td style="" class="a-right">
+                                                    <strong><span class="price">@Html.GetTotalPrice(Model)</span></strong>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td style="" class="a-right" colspan="1">
+
+                                                    Subtotal
+                                                </td>
+                                                <td style="" class="a-right">
+                                                    <span class="price">@Html.GetTotalPrice(Model)</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <ul class="checkout-types">
+                                        <li>
+                                            <button type="button" title="Proceed to Checkout" class="button btn-proceed-checkout btn-checkout" onclick="window.location='/cart/checkout';"><span><span>Proceed to Checkout</span></span></button>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                        </div> <!-- end: cart-right-column -->
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function RemoveItem(link)
+    {
+        if (confirm("Are you really want to remove this item?"))
+        {
+            var input = $("input", link.parent());
+            $.post("/cart/removeitem", { "cartItemId": input.val() });
+            link.parent().parent().empty();
+            if ($("#shopping-cart-table tbody tr").size() == 1)
+            {
+                window.location.reload();
+            }
+            
+        }
+        
+    }
+</script>
