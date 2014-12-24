@@ -1,0 +1,27 @@
+﻿@using MyShop.Models.Entities
+@model Menu
+@{
+    var menus = new List<Menu>();
+    var currentMenu = Model;
+    while(currentMenu != MenuManager.RootMenu)
+    {
+        menus.Add(currentMenu);
+        currentMenu = currentMenu.Parent;
+    }
+    menus.RemoveAt(0);
+    menus.Reverse();
+}
+<div class="breadcrumbs">
+    <ul>
+        @foreach (var m in menus)
+        {
+            <li class="category6">
+                <a href="@Url.GenerateUrl(m)" title="Go to @m.Name">@m.Name</a>
+                <span></span>
+            </li>
+        }
+        <li class="category118">
+            <strong>@Model.Name</strong>
+        </li>
+    </ul>
+</div>

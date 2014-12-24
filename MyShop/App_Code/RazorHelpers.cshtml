@@ -1,0 +1,33 @@
+﻿@helper RenderLeftMenu(int currentNumber = 1)
+{
+    var collection = new List<dynamic>();
+    
+    collection.Add(new { number = 1, url = "/account/index.html", label = "ACCOUNT DASHBOARD" });
+    collection.Add(new { number = 2, url = "/account/edit.html", label = "ACCOUNT INFORMATION" });
+    collection.Add(new { number = 3, url = "/account/wow.html", label = "WOW INFORMATION" });
+    collection.Add(new { number = 4, url = "/account/orders.html", label = "MY ORDERS" });
+    collection.Add(new { number = 5, url = "/account/feedback.html", label = "MY FEEDBACK" });
+    
+    <div class="col-left sidebar grid12-3 grid-col2-sidebar no-gutter">
+        <div class="block block-account">
+            <div class="block-title">
+                <strong><span>Account</span></strong>
+            </div>
+            <div class="block-content">
+                <ul>
+                @foreach (var v in collection)
+                {
+                    if (v.number == currentNumber)
+                    {
+                        <li class="current"><strong>@v.label</strong></li>
+                    }
+                    else
+                    {
+                        <li><a href="@v.url">@v.label</a></li>
+                    }
+                }
+                </ul>
+            </div>
+        </div>
+    </div>
+ }

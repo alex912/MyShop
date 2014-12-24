@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MyShop.Models.Entities.Item>
+
+@{
+    ViewBag.Title = "Список товаров";
+}
+<div class="main-container col1-layout">
+    <div class="main-before-top-container"></div>
+    <div class="main container">
+        <div class="inner-container">
+            <div class="preface">
+
+                <h2>Список товаров:</h2>
+
+                <p>
+                    @Html.ActionLink("Добавить новый", "AddItem")
+                </p>
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Path)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.PriceDesc)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Count)
+                        </th>
+
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Path)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PriceDesc)
+                            </td>
+
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Count)
+                            </td>
+
+
+                            <td>
+                                @Html.ActionLink("Редактировать", "EditItem", new { id = item.Id }) |
+                                @Html.ActionLink("Детали", "InfoItem", new { id = item.Id }) |
+                                @Html.ActionLink("Удалить", "DeleteItem", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

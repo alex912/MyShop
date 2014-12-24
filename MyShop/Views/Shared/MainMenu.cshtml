@@ -1,0 +1,322 @@
+﻿@using MyShop.Models.Entities
+
+@helper PrintMenu(Menu menu, bool IsFirst, bool IsLast, string NavString)
+{
+    if (!menu.IsActive) { 
+        return;
+    }
+
+    // root has null region
+    if (menu.Type != MenuType.TYPE_ROOT && menu.Region != MyShopController.Region) {
+        return;
+    }
+    
+    var menuType = menu.Type;
+    var menuLvl = "level" + menu.Level;
+    var isnew = menu.IsNew ? " <span class=\"cat-label cat-label-label1 pin-bottom\">New</span>" : "";
+    var ishot = menu.IsHot ? " <span class=\"cat-label cat-label-label2\">Hot!</span>" : "";
+    var isright = menu.Side == 1 ? "right" : "";
+    if (menuType == MenuType.TYPE_ROOT)
+    {
+    @:  <ul id="nav" class="nav-regular opt-fx-fade-inout opt-sb0">
+        int count = 1;
+        foreach (var m in menu.Childs)
+        {
+            @PrintMenu(m, count == 1, count == menu.Childs.Count, NavString + "-" + count);
+            count++;
+        }
+    @:  </ul>
+    }
+
+    if (menuType == MenuType.TYPE_HOME || menuType == MenuType.TYPE_URL)
+    {
+        var ishome1 = (menuType == MenuType.TYPE_HOME) ? "nav-item--home" : "";
+        var ishome2 = (menuType == MenuType.TYPE_HOME) ? "<span class=\"ic ic-home\"></span> " : "";
+        var url = (menuType == MenuType.TYPE_HOME) ? Url.GenerateUrl(menu) : menu.Url;
+        @:<li class="nav-item @ishome1 @menuLvl level-top @isright"><a class="level-top" href="@url">@Html.Raw(ishome2)<span>@menu.Name</span></a></li>
+    }
+    if (menuType == MenuType.TYPE_MEGAMENU1)
+    {
+        @:<li class="nav-item @menuLvl @NavString level-top @IsFirst @IsLast nav-item--parent mega parent @isright">
+            @:<a href="@Url.GenerateUrl(menu)" class="level-top"><span>@menu.Name</span><span class="caret">&nbsp;</span></a>
+            @:<span class="opener"></span>
+            @:<div class="nav-panel--dropdown nav-panel" style="width:595px;">
+                @:<div class="nav-panel-inner">
+                    @:<div class="nav-block--center grid12-4">
+                        @:<ul class="@menuLvl nav-submenu nav-submenu--mega dd-itemgrid dd-itemgrid-1col">
+            int count = 1;
+            foreach (var m in menu.Childs)
+            {
+                @PrintMenu(m, count == 1, count == menu.Childs.Count, NavString + "-" + count);
+                count++;
+            }
+            @:
+        @:</ul>
+    @:</div>
+    @:<div class="nav-block nav-block--right std grid12-8">
+        @: <a href="@Url.GenerateUrl(menu)" style="display:block; text-align:center;">
+            @:   <img class=" " src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/demo/infortis/ultimo/menu/01.png" alt="Sample custom content of the category block" />
+            @:
+    @:</a>
+        @:
+    @:</div>
+    @:
+@:</div>
+@:</div>
+@:</li>
+    }
+    if (menuType == MenuType.TYPE_MEGAMENU2)
+    {
+        
+                
+    @:  <li class="nav-item @menuLvl @NavString level-top nav-item--parent mega parent @isright"><a href="@Url.GenerateUrl(menu)" class="level-top"><span>@menu.Name@Html.Raw(isnew)@Html.Raw(ishot)</span><span class="caret">&nbsp;</span></a>
+    @:      <span class="opener"></span>
+    @:          <div class="nav-panel--dropdown nav-panel full-width">
+    @:              <div class="nav-panel-inner">
+    @:                  <div class="nav-block--center grid12-8">
+    @:                      <ul class="level0 nav-submenu nav-submenu--mega dd-itemgrid dd-itemgrid-4col">
+
+         int count = 1;
+         foreach (var m in menu.Childs)
+         {
+
+             @PrintMenu(m, count == 1, count == menu.Childs.Count, NavString + "-" + count);
+             count++;
+         }       
+    @:  </ul></div></div></div></li>
+    }
+    
+    if (menuType == MenuType.TYPE_SUBMENU)
+    {
+        var first = (IsFirst) ? "first" : "";
+        var last = (IsLast) ? "last" : "";
+        var haschilds = menu.HasChilds() ? "nav-item--parent nav-item--only-subcategories parent" : "";
+        
+        @:<li class="nav-item @menuLvl @NavString @first @last classic">
+        @:  <a href="@Url.GenerateUrl(menu)"><span>@menu.Name@Html.Raw(isnew)@Html.Raw(ishot)</span><span class="caret">&nbsp;</span></a>
+        if (menu.HasChilds())
+        {
+            string dropdownpanel = menu.Level >=2 ? "nav-panel--dropdown" : "";
+            @:<span class="opener"></span>
+            @:<ul class="@menuLvl nav-submenu @dropdownpanel nav-panel ">
+            int count = 1;
+            foreach (var m in menu.Childs)
+            {
+                @PrintMenu(m, count == 1, count == menu.Childs.Count, NavString + "-" + count);
+                count++;
+            }
+        @:</ul>
+        }
+
+    @:</li>
+    }
+}
+
+<div id="header-nav" class="nav-container sticky-container skip-content">
+    <div class="nav container clearer  has-outline show-bg">
+        <div class="inner-container">
+
+            <div class="mobnav-trigger-wrapper">
+                <a class="mobnav-trigger" href="#">
+                    <span class="trigger-icon"><span class="line"></span><span class="line"></span><span class="line"></span></span>
+                    <span>Menu</span>
+                </a>
+            </div>
+
+
+
+
+
+            @PrintMenu(MenuManager.RootMenu, false, false, "nav")
+
+
+
+
+            <script type="text/javascript">
+                //<![CDATA[
+
+
+
+                var MegaMenu = {
+
+                    mobileMenuThreshold: 960, bar: jQuery('#nav')
+                    , panels: null
+                    , mobnavTriggerWrapper: null
+                    , itemSelector: 'li'
+                    , panelSelector: '.nav-panel'
+                    , openerSelector: '.opener'
+                    , isTouchDevice: ('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0)
+                    , ddDelayIn: 100
+                    , ddDelayOut: 200
+                    , ddAnimationDurationIn: 100
+                    , ddAnimationDurationOut: 300
+
+                    , init: function () {
+                        MegaMenu.panels = MegaMenu.bar.find(MegaMenu.panelSelector);
+                        MegaMenu.mobnavTriggerWrapper = jQuery('.mobnav-trigger-wrapper');
+                    }
+
+                    , initDualMode: function () {
+                        MegaMenu.init();
+                        MegaMenu.bar.accordion(MegaMenu.panelSelector, MegaMenu.openerSelector, MegaMenu.itemSelector);
+                        if (jQuery(window).width() >= MegaMenu.mobileMenuThreshold) {
+                            MegaMenu.cleanUpAfterMobileMenu(); //Required for IE8
+                        }
+
+                        enquire
+                            .register('screen and (max-width: ' + (MegaMenu.mobileMenuThreshold - 1) + 'px)', {
+                                match: MegaMenu.activateMobileMenu,
+                                unmatch: MegaMenu.cleanUpAfterMobileMenu
+                            })
+                            .register('screen and (min-width: ' + MegaMenu.mobileMenuThreshold + 'px)', {
+                                deferSetup: true,
+                                setup: MegaMenu.cleanUpAfterMobileMenu,
+                                match: MegaMenu.activateRegularMenu,
+                                unmatch: MegaMenu.prepareMobileMenu
+                            });
+                    }
+
+                    , initMobileMode: function () {
+                        MegaMenu.init();
+                        MegaMenu.bar.accordion(MegaMenu.panelSelector, MegaMenu.openerSelector, MegaMenu.itemSelector);
+                        MegaMenu.activateMobileMenu();
+                    }
+
+                    , activateMobileMenu: function () {
+                        MegaMenu.mobnavTriggerWrapper.show();
+                        MegaMenu.bar.addClass('nav-mobile acco').removeClass('nav-regular');
+                    }
+
+                    , activateRegularMenu: function () //Default state
+                    {
+                        MegaMenu.bar.addClass('nav-regular').removeClass('nav-mobile acco');
+                        MegaMenu.mobnavTriggerWrapper.hide();
+                    }
+
+                    , cleanUpAfterMobileMenu: function () {
+                        MegaMenu.panels.css('display', '');
+                    }
+
+                    , prepareMobileMenu: function () {
+                        MegaMenu.panels.hide();
+
+                        MegaMenu.bar.find('.item-active').each(function () {
+                            jQuery(this).children('.nav-panel').show();
+                        });
+                    }
+
+                }; //end: MegaMenu
+
+
+
+
+                MegaMenu.initDualMode();
+
+                //Toggle mobile menu
+                jQuery('a.mobnav-trigger').on('click', function (e) {
+                    e.preventDefault();
+                    if (jQuery(this).hasClass('active')) {
+                        MegaMenu.bar.removeClass('show');
+                        jQuery(this).removeClass('active');
+                    }
+                    else {
+                        MegaMenu.bar.addClass('show');
+                        jQuery(this).addClass('active');
+                    }
+                });
+
+
+
+
+
+                jQuery(function ($) {
+
+                    var menubar = MegaMenu.bar;
+
+                    menubar.on('click', '.no-click', function (e) {
+                        e.preventDefault();
+                    });
+
+                    menubar.on('mouseenter', 'li.parent.level0', function () {
+
+                        if (false === menubar.hasClass('nav-mobile')) {
+                            var item = $(this);
+                            var dd = item.children('.nav-panel');
+
+                            var itemPos = item.position();
+                            var ddPos = { left: itemPos.left, top: itemPos.top + item.height() };
+                            if (dd.hasClass('full-width')) { ddPos.left = 0; }
+
+                            dd.removeClass('tmp-full-width');
+
+                            var ddConOffset = menubar.offset().left;
+                            var outermostCon = $(window);
+
+                            var outermostContainerWidth = outermostCon.width();
+                            var ddOffset = ddConOffset + ddPos.left;
+                            var ddWidth = dd.outerWidth();
+
+                            if ((ddOffset + ddWidth) > outermostContainerWidth) {
+                                var diff = (ddOffset + ddWidth) - outermostContainerWidth;
+                                var ddPosLeft_NEW = ddPos.left - diff;
+
+                                var ddOffset_NEW = ddOffset - diff;
+
+                                if (ddOffset_NEW < 0) {
+                                    dd.addClass('tmp-full-width');
+                                    ddPos.left = 0;
+                                }
+                                else {
+                                    ddPos.left = ddPosLeft_NEW;
+                                }
+                            }
+
+                            dd
+                                .css({
+                                    'left': ddPos.left + 'px',
+                                    'top': ddPos.top + 'px'
+                                })
+                                .stop(true, true).delay(MegaMenu.ddDelayIn).fadeIn(MegaMenu.ddAnimationDurationIn, "easeOutCubic");
+                        }
+
+                    }).on('mouseleave', 'li.parent.level0', function () {
+
+                        if (false === menubar.hasClass('nav-mobile')) {
+                            $(this).children(".nav-panel")
+                            .stop(true, true).delay(MegaMenu.ddDelayOut).fadeOut(MegaMenu.ddAnimationDurationOut, "easeInCubic");
+                        }
+
+                    }); //end: menu top-level dropdowns
+
+                }); //end: on document ready
+
+                jQuery(window).on("load", function () {
+
+                    var menubar = MegaMenu.bar;
+
+                    if (MegaMenu.isTouchDevice) {
+                        menubar.on('click', 'a', function (e) {
+
+                            link = jQuery(this);
+                            if (!menubar.hasClass('nav-mobile') && link.parent().hasClass('nav-item--parent')) {
+                                if (!link.hasClass('ready')) {
+                                    e.preventDefault();
+                                    menubar.find('.ready').removeClass('ready');
+                                    link.parents('li').children('a').addClass('ready');
+                                }
+                            }
+
+                        }); //end: on click
+                    } //end: if isTouchDevice
+
+                }); //end: on load
+
+
+
+
+                //]]>
+            </script>
+
+        </div> <!-- end: inner-container -->
+    </div> <!-- end: nav -->
+</div> <!-- end: nav-container -->

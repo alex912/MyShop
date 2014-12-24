@@ -1,0 +1,1473 @@
+﻿
+
+<div class="main-container col1-layout">
+    <div class="main-before-top-container"></div>
+    <div class="main container">
+        <div class="inner-container">
+            <div class="preface">
+
+                <div class="the-slideshow-wrapper-outer" style="margin-top:-20px;">
+
+                    <div class="the-slideshow-wrapper">
+
+                        <div class="the-slideshow    slider-arrows2 slider-pagination2 pagination-pos-bottom-centered">
+                            <div id="slideshow-c819737a34460b2c4b0404bf9e6ea328" class="slides">
+                                @foreach (var slide in SlideManager.GetAllSlidesByRegion())
+                                {
+                                    <div class="item slide">
+                                        <a href="http://ultimo.infortis-themes.com/demo/fourth/ultimo-responsive-magento-theme/">
+                                            <img src="@Url.Content("~/images/slideshow/" + slide.ImageName)" />
+
+                                            <div class="caption @slide.Classes">
+                                                <h2 class="heading permanent">@slide.Caption</h2>
+                                                @Html.Raw(slide.Text)
+                                            </div>
+                                        </a>
+                                    </div>
+                                }
+
+                            </div> <!-- end: slides -->
+                        </div> <!-- end: the-slideshow -->
+
+
+                    </div> <!-- end: the-slideshow-wrapper -->
+
+                </div> <!-- end: the-slideshow-wrapper-outer -->
+
+                <script type="text/javascript">
+                    //<![CDATA[
+                    jQuery(function ($) {
+
+                        var owl = $('#slideshow-c819737a34460b2c4b0404bf9e6ea328');
+                        owl.owlCarousel({
+
+                            singleItem: true,
+
+                            slideSpeed: 200,
+
+                            paginationSpeed: 500,
+
+                            autoPlay: 10000,
+                            autoWidth: true,
+                            stopOnHover: true,
+
+                            rewindNav: true,
+                            rewindSpeed: 600,
+
+                            autoHeight: true,
+
+                            transitionStyle: 'fade',
+
+                            navigation: true,
+                            navigationText: false
+
+                        }); //end: owl
+
+                    });
+                    //]]>
+                </script>
+            </div>
+            <div class="col-main">
+                <div class="std">
+                    <span class="section-line"></span>
+                    <br />
+                    <div class="grid12-4">
+
+                        <div class="feature feature-icon-hover indent indent-size-xl">
+                            <span class="ic ic-2x ic-paint ib ib-size-xl"></span>
+                            <h6 class="above-heading">Customizable design</h6>
+                            <h3>Unlimited Colors</h3>
+                            <p>You have never seen so many options! Change colors of dozens of elements, apply textures, upload background images...</p>
+                            <a href="http://ultimo.infortis-themes.com/demo/second2/ultimo-responsive-magento-theme/" class="go">See all features</a>
+                        </div>
+
+                    </div>
+                    <div class="grid12-4">
+
+                        <div class="feature feature-icon-hover indent indent-size-xl">
+                            <span class="ic ic-2x ic-smartphones ib ib-size-xl"></span>
+                            <h6 class="above-heading">12-column grid</h6>
+                            <h3>Responsive Layout</h3>
+                            <p>Ultimo can be displayed on any screen. It is based on fluid grid system. If screen is resized, layout will be automatically adjusted...</p>
+                            <a href="http://ultimo.infortis-themes.com/demo/second2/ultimo-responsive-magento-theme/" class="go">See all features</a>
+                        </div>
+
+                    </div>
+                    <div class="grid12-4">
+
+                        <div class="feature feature-icon-hover  indent indent-size-xl">
+                            <span class="ic ic-2x ic-star ib ib-size-xl"></span>
+                            <h6 class="above-heading">Content placeholders</h6>
+                            <h3>50+ CMS blocks</h3>
+                            <p>You can use content placeholders to display custom content in almost every part of the store. Import sample CMS blocks from the demo...</p>
+                            <a href="http://ultimo.infortis-themes.com/demo/second2/ultimo-responsive-magento-theme/" class="go">See all features</a>
+                        </div>
+
+                    </div>
+                    <div class="clearer"></div>
+
+
+
+
+
+                    <br />
+                    <br />
+
+                    <h3 class="section-title padding-right">Our Featured Products</h3>
+                    <div class="itemslider-wrapper slider-arrows1 slider-arrows1-pos-top-right slider-pagination1">
+                        <div id="itemslider-featured-10e43b08c3ac7989299a0726e82f0537" class="itemslider itemslider-responsive products-grid">
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress1.html" title="Sample Fashion Product" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model1a_1.jpg" alt="Sample Fashion Product" />
+
+                                        <img class="alt-img" src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model1d.jpg" alt="Sample Fashion Product" />
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/1/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/1/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress1.html" title="Sample Fashion Product">Sample Fashion Product</a></h3>
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-1">
+                                        <span class="price">$50.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress2.html" title="Product With Custom Options" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model1f_1.jpg" alt="Product With Custom Options" />
+
+                                        <img class="alt-img" src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model1e.jpg" alt="Product With Custom Options" />
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/6/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/6/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress2.html" title="Product With Custom Options">Product With Custom Options</a></h3>
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-6">
+                                        <span class="price">$45.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress7.html" title="Configurable Product Example" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model3a_3.jpg" alt="Configurable Product Example" />
+
+
+                                        <span class="sticker-wrapper top-right"><span class="sticker sale">Sale</span></span>
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/15/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/15/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress7.html" title="Configurable Product Example">Configurable Product Example</a></h3>
+
+
+
+                                <div class="price-box">
+
+                                    <p class="old-price">
+                                        <span class="price-label">Regular Price:</span>
+                                        <span class="price" id="old-price-15">
+                                            $100.00
+                                        </span>
+                                    </p>
+
+                                    <p class="special-price">
+                                        <span class="price-label">Now only:</span>
+                                        <span class="price" id="product-price-15">
+                                            $75.00
+                                        </span>
+                                    </p>
+
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress4.html" title="Another Configurable Product" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model1b_4.jpg" alt="Another Configurable Product" />
+
+
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/8/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/8/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress4.html" title="Another Configurable Product">Another Configurable Product</a></h3>
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-8">
+                                        <span class="price">$100.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress5.html" title="Simple Dress Example" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model6a.jpg" alt="Simple Dress Example" />
+
+
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/13/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/13/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress5.html" title="Simple Dress Example">Simple Dress Example</a></h3>
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-13">
+                                        <span class="price">$35.50</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress6.html" title="Set of Many Products" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model7a.jpg" alt="Set of Many Products" />
+
+
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/14/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/14/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress6.html" title="Set of Many Products">Set of Many Products</a></h3>
+
+
+                                <div class="price-box">
+                                    <p class="minimal-price">
+                                        <span class="price-label">Starting at:</span>
+                                        <span class="price" id="product-minimal-price-14">
+                                            $35.50
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress3.html" title="Sample Customizable Dress" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model1c_4.jpg" alt="Sample Customizable Dress" />
+
+
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/7/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/7/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress3.html" title="Sample Customizable Dress">Sample Customizable Dress</a></h3>
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-7">
+                                        <span class="price">$79.99</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress-example-white-s.html" title="Dress Example Size-S" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model4a.jpg" alt="Dress Example Size-S" />
+
+
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/16/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/16/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress-example-white-s.html" title="Dress Example Size-S">Dress Example Size-S</a></h3>
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-16">
+                                        <span class="price">$100.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress-example-size-m.html" title="Dress Example Size-M" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model7a_1_1.jpg" alt="Dress Example Size-M" />
+
+
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/17/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/17/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress-example-size-m.html" title="Dress Example Size-M">Dress Example Size-M</a></h3>
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-17">
+                                        <span class="price">$100.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress-example-size-l.html" title="Dress Example Size-L" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model8a.jpg" alt="Dress Example Size-L" />
+
+
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/18/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/18/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress-example-size-l.html" title="Dress Example Size-L">Dress Example Size-L</a></h3>
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-18">
+                                        <span class="price">$100.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress-example-size-xl.html" title="Dress Example Size-XL" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model5a_3.jpg" alt="Dress Example Size-XL" />
+
+
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/19/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/19/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress-example-size-xl.html" title="Dress Example Size-XL">Dress Example Size-XL</a></h3>
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-19">
+                                        <span class="price">$100.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/dress-example-blue-size-s.html" title="Dress Example Blue Size-S" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/m/o/model2a_2.jpg" alt="Dress Example Blue Size-S" />
+
+
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/20/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/20/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/dress-example-blue-size-s.html" title="Dress Example Blue Size-S">Dress Example Blue Size-S</a></h3>
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-20">
+                                        <span class="price">$100.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                        </div> <!-- end: itemslider -->
+                    </div> <!-- end: itemslider-wrapper -->
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        jQuery(function ($) {
+
+                            var owl = $('#itemslider-featured-10e43b08c3ac7989299a0726e82f0537');
+                            owl.owlCarousel({
+
+                                lazyLoad: true,
+
+                                itemsCustom: [[0, 1], [320, 2], [480, 3], [768, 4], [960, 5], [1280, 6]],
+                                responsiveRefreshRate: 50,
+
+                                slideSpeed: 200,
+
+                                paginationSpeed: 500,
+
+                                scrollPerPage: true,
+
+
+                                stopOnHover: true,
+
+                                rewindNav: true,
+                                rewindSpeed: 600,
+
+                                pagination: false,
+
+                                navigation: true,
+                                navigationText: false
+
+                            }); //end: owl
+
+                        });
+                        //]]>
+                    </script>
+
+
+
+                    <h3 class="section-title padding-right">New in Store</h3>
+                    <div class="itemslider-wrapper itemslider-new-wrapper slider-arrows1 slider-arrows1-pos-top-right slider-pagination1">
+                        <div id="itemslider-new" class="itemslider itemslider-responsive products-grid">
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/phone4.html" title="Simple Phone" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone06_2.jpg" alt="Simple Phone" />
+
+
+                                        <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/29/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/29/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/phone4.html" title="Simple Phone">Simple Phone</a></h3>
+
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width:100%"></div>
+                                    </div>
+                                    <span class="amount">1 Review(s)</span>
+                                </div>
+
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-29-new">
+                                        <span class="price">$699.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/phone9.html" title="Grouped Product" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone10.jpg" alt="Grouped Product" />
+
+
+                                        <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/34/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/34/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/phone9.html" title="Grouped Product">Grouped Product</a></h3>
+
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width:100%"></div>
+                                    </div>
+                                    <span class="amount">1 Review(s)</span>
+                                </div>
+
+
+
+                                <div class="price-box">
+                                    <p class="minimal-price">
+                                        <span class="price-label">Starting at:</span>
+                                        <span class="price" id="product-minimal-price-34-new">
+                                            $45.00
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/phone6.html" title="Big Smartphone" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone05_2.jpg" alt="Big Smartphone" />
+
+
+                                        <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/31/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/31/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/phone6.html" title="Big Smartphone">Big Smartphone</a></h3>
+
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width:100%"></div>
+                                    </div>
+                                    <span class="amount">1 Review(s)</span>
+                                </div>
+
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-31-new">
+                                        <span class="price">$124.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/phone2.html" title="Phone with Variants" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone03.jpg" alt="Phone with Variants" />
+
+                                        <img class="alt-img" src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone07a_2.jpg" alt="Phone with Variants" />
+                                        <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/22/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/22/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/phone2.html" title="Phone with Variants">Phone with Variants</a></h3>
+
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width:80%"></div>
+                                    </div>
+                                    <span class="amount">1 Review(s)</span>
+                                </div>
+
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-22-new">
+                                        <span class="price">$750.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/phone3.html" title="Configurable Phone" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone01_3.jpg" alt="Configurable Phone" />
+
+                                        <img class="alt-img" src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone06a.jpg" alt="Configurable Phone" />
+                                        <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span><span class="sticker-wrapper top-right"><span class="sticker sale">Sale</span></span>
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/24/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/24/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/phone3.html" title="Configurable Phone">Configurable Phone</a></h3>
+
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width:100%"></div>
+                                    </div>
+                                    <span class="amount">1 Review(s)</span>
+                                </div>
+
+
+
+
+                                <div class="price-box">
+
+                                    <p class="old-price">
+                                        <span class="price-label">Regular Price:</span>
+                                        <span class="price" id="old-price-24-new">
+                                            $700.00
+                                        </span>
+                                    </p>
+
+                                    <p class="special-price">
+                                        <span class="price-label">Now only:</span>
+                                        <span class="price" id="product-price-24-new">
+                                            $650.00
+                                        </span>
+                                    </p>
+
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/phone8.html" title="Tier Pricing Product" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone08_2.jpg" alt="Tier Pricing Product" />
+
+
+                                        <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/33/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/33/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/phone8.html" title="Tier Pricing Product">Tier Pricing Product</a></h3>
+
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width:100%"></div>
+                                    </div>
+                                    <span class="amount">1 Review(s)</span>
+                                </div>
+
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-33-new">
+                                        <span class="price">$500.00</span>
+                                    </span>
+
+
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/phone8.html" class="minimal-price-link">
+                                        <span class="label">As low as:</span>
+                                        <span class="price" id="product-minimal-price-33-new">
+                                            $400.00
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/phone7.html" title="Modern Cell Phone" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone07.jpg" alt="Modern Cell Phone" />
+
+
+                                        <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/32/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/32/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/phone7.html" title="Modern Cell Phone">Modern Cell Phone</a></h3>
+
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width:100%"></div>
+                                    </div>
+                                    <span class="amount">1 Review(s)</span>
+                                </div>
+
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-32-new">
+                                        <span class="price">$999.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/phone5.html" title="Deep Blue Phone" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone04_1.jpg" alt="Deep Blue Phone" />
+
+                                        <img class="alt-img" src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone01a_2.jpg" alt="Deep Blue Phone" />
+                                        <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/30/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/30/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/phone5.html" title="Deep Blue Phone">Deep Blue Phone</a></h3>
+
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width:100%"></div>
+                                    </div>
+                                    <span class="amount">1 Review(s)</span>
+                                </div>
+
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-30-new">
+                                        <span class="price">$400.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="item">
+
+                                <div class="product-image-wrapper" style="max-width:196px;">
+
+                                    <a href="http://ultimo.infortis-themes.com/demo/second2/phone1.html" title="The New Phone" class="product-image">
+
+                                        <img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone02.jpg" alt="The New Phone" />
+
+                                        <img class="alt-img" src="http://ultimo.infortis-themes.com/demo/media/catalog/product/cache/3/small_image/196x/040ec09b1e35df139433887a97daa66f/p/h/phone09_1.jpg" alt="The New Phone" />
+                                        <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                    </a>
+
+                                    <ul class="add-to-links clearer addto-links-icons addto-onimage visible-onhover">
+                                        <li>
+                                            <a class="link-wishlist"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/wishlist/index/add/product/21/"
+                                               title="Add to Wishlist">
+                                                <span class="2 icon ib ic ic-heart"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-compare"
+                                               href="http://ultimo.infortis-themes.com/demo/second2/catalog/product_compare/add/product/21/uenc/aHR0cDovL3VsdGltby5pbmZvcnRpcy10aGVtZXMuY29tL2RlbW8vc2Vjb25kMi8,/"
+                                               title="Add to Compare">
+                                                <span class="2 icon ib ic ic-compare"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <h3 class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/phone1.html" title="The New Phone">The New Phone</a></h3>
+
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width:100%"></div>
+                                    </div>
+                                    <span class="amount">1 Review(s)</span>
+                                </div>
+
+
+
+
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-21-new">
+                                        <span class="price">$800.00</span>
+                                    </span>
+
+                                </div>
+
+                                <div class="actions">
+
+
+
+                                </div>
+
+                            </div>
+                        </div> <!-- end: itemslider -->
+                    </div> <!-- end: itemslider-wrapper -->
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        jQuery(function ($) {
+
+                            var owl = $('#itemslider-new');
+                            owl.owlCarousel({
+
+                                lazyLoad: true,
+
+                                itemsCustom: [[0, 1], [320, 2], [480, 3], [768, 4], [960, 5], [1280, 6]],
+                                responsiveRefreshRate: 50,
+
+                                slideSpeed: 200,
+
+                                paginationSpeed: 500,
+
+
+
+                                stopOnHover: true,
+
+                                rewindNav: true,
+                                rewindSpeed: 600,
+
+                                pagination: true,
+
+                                navigation: true,
+                                navigationText: false
+
+                            }); //end: owl
+
+                        });
+                        //]]>
+                    </script>
+
+
+
+
+                    <span class="section-title">Sample Custom Banners</span>
+                    <br />
+
+                    <!-- First banner has a link which adds a product to the cart (link was copied from product's button "Add to cart") -->
+                    <div class="page-banners grid-container">
+                        <div class="grid12-3 banner fade-on-hover hide-below-768">
+                            <a href="http://ultimo.infortis-themes.com/demo/second2/checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC5jb20vbTE3MDItMDF1bHRpbW8vZGVmYXVsdC8,/product/30/" title="Click to add sample product to your cart">
+                                <img class="fade-on-hover" src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/ultimo/custom/banners/1a.png" alt="Add product to cart" />
+                            </a>
+                        </div>
+                        <div class="grid12-3 banner fade-on-hover hide-below-768">
+                            <a href="http://ultimo.infortis-themes.com/demo/second2/checkout/cart/" title="Click to go to cart page">
+                                <img class="fade-on-hover" src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/ultimo/custom/banners/1b.png" alt="Go to Magento cart page" />
+                            </a>
+                        </div>
+                        <div class="grid12-6 banner">
+                            <img class="fade-on-hover" src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/ultimo/custom/banners/1c.png" alt="Magento discount code" title="Use discount code/coupon on cart page" />
+                        </div>
+                    </div>
+
+
+
+
+
+                    <br />
+                    <div class="grid12-3">
+
+                        <div class="feature feature-icon-hover">
+                            <span class="left ic ic-lg ic-anchor ib"></span>
+                            <h6 class="above-heading">Secondary Heading</h6>
+                            <h3>Sample Heading</h3>
+                            <p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit rory solare de equis.</p>
+                            <a href="#" class="go">Read more</a>
+                        </div>
+
+                    </div>
+                    <div class="grid12-3">
+
+                        <div class="feature feature-icon-hover">
+                            <span class="left ic ic-lg ic-gift ib"></span>
+                            <h6 class="above-heading">Secondary Heading</h6>
+                            <h3>Feature Title</h3>
+                            <p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>
+                            <a href="#" class="go">Read more</a>
+                        </div>
+
+                    </div>
+                    <div class="grid12-3 hide-below-768">
+
+                        <div class="feature feature-icon-hover">
+                            <span class="left ic ic-lg ic-edit2 ib"></span>
+                            <h6 class="above-heading">Secondary Heading</h6>
+                            <h3>Sample Title</h3>
+                            <p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>
+                            <a href="#" class="go">Read more</a>
+                        </div>
+
+                    </div>
+                    <div class="grid12-3 hide-below-768">
+
+                        <div class="feature feature-icon-hover">
+                            <span class="left ic ic-lg ic-alarm ib"></span>
+                            <h6 class="above-heading">Secondary Heading</h6>
+                            <h3>Feature Title</h3>
+                            <p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>
+                            <a href="http://themeforest.net/item/fortis-flexible-magento-theme/1744309?ref=infortis" class="go">Read more</a>
+                        </div>
+
+                    </div>
+                    <div class="clearer"></div>
+
+
+
+
+
+                    <br />
+                    <br />
+
+                    <h3 class="section-title padding-right">Product Brands</h3>
+                    <div class="itemslider-wrapper brand-slider-wrapper slider-arrows1 slider-arrows1-pos-top-right slider-pagination1 slider-pagination1-centered">
+                        <div id="itemslider-brands-3fd59ec3b411f8f1131719f71002b48c" class="itemslider itemslider-responsive brand-slider">
+
+                            <div class="item">
+                                <a class="fade-on-hover" href="http://ultimo.infortis-themes.com/demo/second2/catalogsearch/result/?q=Brandisimi" title="Click to see more products from Brandisimi"><img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/brands/brandisimi.png" alt="Brandisimi" /></a>
+                            </div>
+
+
+                            <div class="item">
+                                <a class="fade-on-hover" href="http://ultimo.infortis-themes.com/demo/second2/catalogsearch/result/?q=SampleManufacturer" title="Click to see more products from SampleManufacturer"><img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/brands/samplemanufacturer.png" alt="SampleManufacturer" /></a>
+                            </div>
+
+
+                            <div class="item">
+                                <a class="fade-on-hover" href="http://ultimo.infortis-themes.com/demo/second2/catalogsearch/result/?q=TheBrand" title="Click to see more products from TheBrand"><img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/brands/thebrand.png" alt="TheBrand" /></a>
+                            </div>
+
+
+                            <div class="item">
+                                <a class="fade-on-hover" href="http://ultimo.infortis-themes.com/demo/second2/catalogsearch/result/?q=BlueLogo" title="Click to see more products from BlueLogo"><img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/brands/bluelogo.png" alt="BlueLogo" /></a>
+                            </div>
+
+
+                            <div class="item">
+                                <a class="fade-on-hover" href="http://ultimo.infortis-themes.com/demo/second2/catalogsearch/result/?q=Publisher" title="Click to see more products from Publisher"><img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/brands/publisher.png" alt="Publisher" /></a>
+                            </div>
+
+
+                            <div class="item">
+                                <a class="fade-on-hover" href="http://ultimo.infortis-themes.com/demo/second2/catalogsearch/result/?q=Company" title="Click to see more products from Company"><img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/brands/company.png" alt="Company" /></a>
+                            </div>
+
+
+                            <div class="item">
+                                <a class="fade-on-hover" href="http://ultimo.infortis-themes.com/demo/second2/catalogsearch/result/?q=Soundwave" title="Click to see more products from Soundwave"><img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/brands/soundwave.png" alt="Soundwave" /></a>
+                            </div>
+
+
+                            <div class="item">
+                                <a class="fade-on-hover" href="http://ultimo.infortis-themes.com/demo/second2/catalogsearch/result/?q=LogoFashion" title="Click to see more products from LogoFashion"><img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/brands/logofashion.png" alt="LogoFashion" /></a>
+                            </div>
+
+
+                            <div class="item">
+                                <a class="fade-on-hover" href="http://ultimo.infortis-themes.com/demo/second2/catalogsearch/result/?q=Samsung" title="Click to see more products from Samsung"><img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/brands/samsung.png" alt="Samsung" /></a>
+                            </div>
+
+
+                            <div class="item">
+                                <a class="fade-on-hover" href="http://ultimo.infortis-themes.com/demo/second2/catalogsearch/result/?q=Apple" title="Click to see more products from Apple"><img class="lazyOwl" data-src="http://ultimo.infortis-themes.com/demo/media/wysiwyg/infortis/brands/apple.png" alt="Apple" /></a>
+                            </div>
+
+                        </div> <!-- end: itemslider -->
+                    </div> <!-- end: itemslider-wrapper -->
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        jQuery(function ($) {
+
+                            var owl = $('#itemslider-brands-3fd59ec3b411f8f1131719f71002b48c');
+                            owl.owlCarousel({
+
+                                lazyLoad: true,
+
+                                itemsCustom: [[0, 1], [320, 2], [480, 2], [768, 3], [960, 4], [1280, 5]],
+                                responsiveRefreshRate: 50,
+
+                                slideSpeed: 200,
+
+                                paginationSpeed: 500,
+
+
+
+                                stopOnHover: true,
+
+                                rewindNav: true,
+                                rewindSpeed: 600,
+
+                                pagination: true,
+                                paginationSpeed: 600,
+
+                                navigation: true,
+                                navigationText: false
+
+                            }); //end: owl
+
+                        });
+                        //]]>
+                    </script>
+                </div>
+            </div>
+            <div class="postscript"></div>
+        </div>
+    </div>
+</div>

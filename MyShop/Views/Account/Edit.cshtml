@@ -1,0 +1,63 @@
+﻿@using MyShop.Models
+@model ChangePasswordModel
+<div class="main-container col2-left-layout">
+    <div class="main-before-top-container"></div>
+    <div class="main container">
+        <div class="inner-container">
+            <div class="preface"></div>
+            <div class="col-main grid12-9 grid-col2-main no-gutter">
+                <div class="my-account">
+                    <div class="page-title">
+                        <h1>Edit Account Information</h1>
+                    </div>
+                    @Html.ViewBag.PasswordChanged
+                    <form action="/account/edit.html" method="post" id="form-validate">
+                        <div class="fieldset">
+                            <h2 class="legend">Change Password</h2>
+                            <ul class="form-list">
+                                <li>
+                                    @Html.LabelFor(m => m.CurrentPassword)<em>*</em>
+                                    
+                                    <div class="input-box">
+                                        @Html.EditorFor(m => m.CurrentPassword)
+                                        @Html.ValidationMessageFor(m => m.CurrentPassword)
+                                    </div>
+                                </li>
+                                <li class="fields">
+                                    <div class="field">
+                                        @Html.LabelFor(m => m.Password)<em>*</em>
+                                        <div class="input-box">
+                                            @Html.EditorFor(m => m.Password)
+                                            @Html.ValidationMessageFor(m => m.Password)
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        @Html.LabelFor(m => m.RepeatPassword)<em>*</em>
+                                        <div class="input-box">
+                                            @Html.EditorFor(m => m.RepeatPassword)
+                                            @Html.ValidationMessageFor(m => m.RepeatPassword)
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                @Html.LabelFor(m => m.Skype)
+                                <div class="input-box">
+                                    @Html.EditorFor(m => m.Skype)
+                                    @Html.ValidationMessageFor(m => m.Skype)
+                                </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="buttons-set">
+                            <p class="required">* Required Fields</p>
+                            <p class="back-link"><a href="/account/"><small>&laquo; </small>Back</a></p>
+                            <button type="submit" title="Save" class="button"><span><span>Save</span></span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @RazorHelpers.RenderLeftMenu(2)
+            <div class="postscript"></div>
+        </div>
+    </div>
+</div>

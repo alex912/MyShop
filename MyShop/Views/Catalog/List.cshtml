@@ -1,0 +1,282 @@
+﻿@using MyShop.Models.Entities
+@model Menu
+@{
+    if (Model.Childs.Count > 0) { 
+        ViewBag.viewmode = "grid";
+    }
+}
+<div class="main-container col2-left-layout">
+    <div class="main-before-top-container"></div>
+    <div class="main container">
+        <div class="inner-container">
+            @Html.Partial("PathLink", Model)
+            <div class="preface"></div>
+            <div class="col-main grid12-9 grid-col2-main no-gutter">
+                <div class="page-title category-title">
+                    <h1>@Model.Name</h1>
+                </div>
+
+                <div class="category-products">
+
+                    @if (Model.Items.Count > 0) { 
+                    <div class="toolbar">
+                        <div class="sorter">
+                            <p class="view-mode">
+                                <label>View as:</label>
+                                <a href="@string.Concat(Request.Url.AbsolutePath, "?viewmode=grid")" title="List" class="list ic ic-grid"></a>
+                                <a href="@string.Concat(Request.Url.AbsolutePath, "?viewmode=list")" title="List" class="list ic ic-list"></a>
+                            </p>
+                        </div> <!-- end: sorter -->
+                    </div>
+                    }
+                    
+
+                    @if (ViewBag.viewmode == "grid") {  
+                    <ul class="products-grid category-products-grid itemgrid itemgrid-adaptive itemgrid-3col single-line-name hover-effect equal-height">
+
+                        @if (Model.Items.Count > 0) 
+                        {
+                            foreach (var item in Model.Items) { 
+                        <li class="item">
+
+                            <div class="product-image-wrapper" style="max-width:295px;">
+
+                                <a href="@Url.GenerateUrl(item)" title="@item.Name" class="product-image">
+                                    <img src="~/images/menu/@item.ImageName" alt="@item.Name" />
+
+                                    <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                    @if (item.IsSale)
+                                    {
+                                        <span class="sticker-wrapper top-right"><span class="sticker sale">Sale</span></span>
+                                    }
+                                    @if (item.IsNew)
+                                    {
+                                        <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                    }
+                                </a>
+
+                            </div> 
+
+                            <h2 class="product-name">@item.Name</h2>
+
+                            <div class="price-box">
+                                <span class="regular-price" id="product-price-29">
+                                    <span class="price">@item.PriceDesc</span>
+                                </span>
+
+                            </div>
+
+                            <div class="actions clearer display-onhover">
+                                <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('')"><span><span>Добавить в корзину</span></span></button>
+
+                            </div> 
+                        </li>
+                        }
+                        }
+                        
+                        @if (Model.Childs.Count > 0)
+                        {
+                            foreach (var m in Model.Childs)
+                            {
+                                <li class="item">
+
+                                    <div class="product-image-wrapper" style="max-width:295px;">
+
+                                        <a href="@Url.GenerateUrl(m)" title="@m.Name" class="product-image">
+                                            <img src="~/images/menu/@m.ImageName" alt="@m.Name" />
+                                            @if (m.IsNew) { 
+                                                <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                            }
+                                        </a>
+
+                                    </div>
+
+                                    <h2 class="product-name">@m.Name</h2>
+
+                                </li>
+                            }
+                        }
+                    </ul>
+                    }
+                    else
+                    {
+                        <ul class="products-list hover-effect" id="products-list">
+                            @foreach(var item in Model.Items) {
+                            <li class="item">
+
+                                <div class="product-image-wrapper grid12-4 mobile-grid-half">
+
+                                    <a href="@Url.GenerateUrl(item)" title="c" class="product-image" style="max-width:295px;">
+                                        <img src="~/images/menu/@item.ImageName" alt="@item.Name" />
+
+                                        @if (item.IsSale)
+                                        {
+                                            <span class="sticker-wrapper top-right"><span class="sticker sale">Sale</span></span>
+                                        }
+                                        @if (item.IsNew)
+                                        {
+                                            <span class="sticker-wrapper top-left"><span class="sticker new">New</span></span>
+                                        }
+                                    </a>
+
+                                </div> <!-- end: product-image-wrapper -->
+
+                                <div class="product-shop grid12-5 mobile-grid-half">
+                                    <div class="product-shop-inner">
+                                        <h2 class="product-name"><a href="@Url.GenerateUrl(item)" title="@item.Name">@item.Name</a></h2>
+
+                                        <div class="desc std">
+                                            @item.Description
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="right-column grid12-3 mobile-grid-half">
+
+                                    <div class="price-box">
+
+                                        <p class="price">
+                                            <span class="price-label">Price:</span>
+                                            <span class="price" id="old-price-24">
+                                                @item.PriceDesc
+                                            </span>
+                                        </p>
+
+                                    </div>
+
+                                    <p><button type="button" title="Add to Cart" class="button btn-cart" onclick=""><span><span>Add to Cart</span></span></button></p>
+                                </div>
+
+                            </li>
+                            }
+                        </ul>
+                        <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
+
+                    }
+                </div>
+
+            </div>
+
+            <div class="col-left sidebar grid12-3 grid-col2-sidebar no-gutter">
+                <div class="block block-vertnav hide-below-768">
+                    <div class="block-title">
+                        <strong><span>Categories: Electronics</span></strong>
+                    </div>
+                    <div class="block-content">
+                        <ul class="accordion accordion-style1 vertnav vertnav-side clearer">             <li class="nav-item level0 nav-1 first parent"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/smartphones.html"><span>Phones &amp; Tablets</span></a><span class="opener"></span><ul class="level0 nav-submenu"><li class="nav-item level1 nav-1-1 first"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/smartphones/sample.html"><span>Sample<span class="cat-label cat-label-label1">New</span></span></a></li><li class="nav-item level1 nav-1-2"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/smartphones/samsung.html"><span>Samsung</span></a></li><li class="nav-item level1 nav-1-3"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/smartphones/apple.html"><span>Apple</span></a></li><li class="nav-item level1 nav-1-4"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/smartphones/blackberry.html"><span>BlackBerry</span></a></li><li class="nav-item level1 nav-1-5"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/smartphones/motorola.html"><span>Motorola</span></a></li><li class="nav-item level1 nav-1-6"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/smartphones/nokia.html"><span>Nokia</span></a></li><li class="nav-item level1 nav-1-7"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/smartphones/htc.html"><span>HTC</span></a></li><li class="nav-item level1 nav-1-8"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/smartphones/huawei.html"><span>Huawei</span></a></li><li class="nav-item level1 nav-1-9"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/smartphones/google.html"><span>Google</span></a></li><li class="nav-item level1 nav-1-10 last"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/smartphones/sony.html"><span>Sony</span></a></li></ul></li><li class="nav-item level0 nav-2 parent"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories.html"><span>Accessories</span></a><span class="opener"></span><ul class="level0 nav-submenu"><li class="nav-item level1 nav-2-1 first"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/headsets.html"><span>Headsets</span></a></li><li class="nav-item level1 nav-2-2"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/bluetooth-wireless.html"><span>Bluetooth Wireless</span></a></li><li class="nav-item level1 nav-2-3"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/earphones.html"><span>Earphones</span></a></li><li class="nav-item level1 nav-2-4"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/batteries.html"><span>Batteries</span></a></li><li class="nav-item level1 nav-2-5"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/screen-protectors.html"><span>Screen Protectors</span></a></li><li class="nav-item level1 nav-2-6"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/memory-cards.html"><span>Memory Cards</span></a></li><li class="nav-item level1 nav-2-7"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/cables-adapters.html"><span>Cables &amp; Adapters</span></a></li><li class="nav-item level1 nav-2-8"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/cleaning-cloth.html"><span>Cleaning Cloth</span></a></li><li class="nav-item level1 nav-2-9"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/chargers.html"><span>Chargers</span></a></li><li class="nav-item level1 nav-2-10"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/cases.html"><span>Cases</span></a></li><li class="nav-item level1 nav-2-11"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/covers.html"><span>Covers</span></a></li><li class="nav-item level1 nav-2-12 last"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/phone-accessories/skins.html"><span>Skins</span></a></li></ul></li><li class="nav-item level0 nav-3 last parent"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/cameras.html"><span>Cameras</span></a><span class="opener"></span><ul class="level0 nav-submenu"><li class="nav-item level1 nav-3-1 first"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/cameras/digital-cameras.html"><span>Digital Cameras</span></a></li><li class="nav-item level1 nav-3-2"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/cameras/camcorders.html"><span>Camcorders</span></a></li><li class="nav-item level1 nav-3-3"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/cameras/lenses.html"><span>Lenses</span></a></li><li class="nav-item level1 nav-3-4"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/cameras/filters.html"><span>Filters</span></a></li><li class="nav-item level1 nav-3-5 last"><a href="http://ultimo.infortis-themes.com/demo/second2/electronics/cameras/tripods.html"><span>Tripods</span></a></li></ul></li>        </ul>
+                    </div>
+                </div>
+                <div class="block block-layered-nav">
+                    <div class="block-title">
+                        <strong><span>Shop By</span></strong>
+                    </div>
+                    <div class="block-content">
+                        <p class="block-subtitle">Shopping Options</p>
+                        <dl id="narrow-by-list">
+                            <dt>Color</dt>
+                            <dd>
+                                <ol>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?color=32">Orange</a>
+                                        (1)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?color=16">White</a>
+                                        (2)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?color=15">Black</a>
+                                        (7)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?color=20">Gray</a>
+                                        (2)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?color=19">Dark Gray</a>
+                                        (2)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?color=14">Blue</a>
+                                        (2)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?color=22">Dark Blue</a>
+                                        (2)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?color=21">Violet</a>
+                                        (4)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?color=17">Red</a>
+                                        (1)
+                                    </li>
+                                </ol>
+                            </dd>
+                            <dt>Manufacturer</dt>
+                            <dd>
+                                <ol>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?manufacturer=18">SampleManufacturer</a>
+                                        (4)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?manufacturer=31">Soundwave</a>
+                                        (9)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?manufacturer=11">Samsung</a>
+                                        (3)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?manufacturer=10">Apple</a>
+                                        (3)
+                                    </li>
+                                </ol>
+                            </dd>
+                            <dt>Price</dt>
+                            <dd>
+                                <ol>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?price=-1000"><span class="price">$0.00</span> - <span class="price">$999.99</span></a>
+                                        (15)
+                                    </li>
+                                    <li>
+                                        <a href="http://ultimo.infortis-themes.com/demo/second2/electronics.html?price=1000-"><span class="price">$1,000.00</span> and above</a>
+                                        (2)
+                                    </li>
+                                </ol>
+                            </dd>
+                        </dl>
+                        <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+                    </div>
+                </div>
+                <div class="block">
+                    <div class="block-title">
+                        <strong><span>Custom Block (top)</span></strong>
+                    </div>
+                    <div class="block-content sample-block">
+                        <p>Custom CMS block displayed at the top of the left sidebar. Put your own content here.</p>
+                    </div>
+                </div><div class="block block-list block-viewed">
+                    <div class="block-title">
+                        <strong><span>Recently Viewed Products</span></strong>
+                    </div>
+                    <div class="block-content">
+                        <ol id="recently-viewed-items">
+                            <li class="item">
+                                <p class="product-name"><a href="http://ultimo.infortis-themes.com/demo/second2/phone4.html">Simple Phone</a></p>
+                            </li>
+                        </ol>
+                        <script type="text/javascript">decorateList('recently-viewed-items');</script>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="postscript"></div>
+        </div>
+    </div>
+</div>
