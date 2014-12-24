@@ -131,6 +131,15 @@ publish/
 *.pubxml
 *.publishproj
 
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# If using the old MSBuild-Integrated Package Restore, uncomment this:
+#!**/packages/repositories.config
+
 # Windows Azure Build Output
 csx/
 *.build.csdef
@@ -162,7 +171,9 @@ Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
-
+# SQL Server files
+*.mdf
+*.ldf
 
 # Business Intelligence projects
 *.rdl.data
