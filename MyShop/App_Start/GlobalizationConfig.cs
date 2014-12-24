@@ -16,8 +16,6 @@ namespace MyShop
 
             RegionManager.AddRegion(new Region { Name = "ru", Language = "Русский", Culture = "ru-RU", ImageFile = "it.png" });
             RegionManager.AddRegion(new Region { Name = "eu", Language = "English", Culture = "en-GB", ImageFile = "english.png" });
-            RegionManager.AddRegion(new Region { Name = "it", Language = "Italian", Culture = "it-IT", ImageFile = "it.png" });
-            RegionManager.AddRegion(new Region { Name = "fr", Language = "France", Culture = "fr-FR", ImageFile = "fr.png" });
 
             RegionManager.AddCulture("ru-RU");
             RegionManager.AddCulture("en-GB");
